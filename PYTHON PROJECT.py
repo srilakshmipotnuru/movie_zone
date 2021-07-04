@@ -46,9 +46,11 @@ while(True):
 		rating_tags=soup.select('div.ratings-bar strong')
 		text="lister-item-year text-muted unbold"
 		year_tags=soup.find_all('span', {'class' : 'lister-item-year text-muted unbold'})
-		
-     
-		for index in range(5):
+		num=5
+		if len(movietags)<num:
+			num=len(movietags)
+	
+		for index in range(num):
 			movie_rating=rating_tags[index].text # u got rating yayyy
 			movie_split=movietags[index].text.split()
 			year=year_tags[index].text
