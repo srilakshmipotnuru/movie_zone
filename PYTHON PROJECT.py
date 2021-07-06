@@ -25,9 +25,9 @@ from imdb import IMDb
 
 import requests
 from bs4 import BeautifulSoup
-# create an instance of the IMDb class
+
 ia = IMDb()
-# search for a person name
+
 
 
 while(True):
@@ -41,7 +41,7 @@ while(True):
 		html=response.text
 
 		soup = BeautifulSoup(html,'html.parser')
-		movietags = soup.select('h3.lister-item-header')#using mocvie split we can get year and movie name print 5 movie names with yaer director stars rating
+		movietags = soup.select('h3.lister-item-header')
 		innermovietag=soup.select('h3.lister-item-header a')
 		rating_tags=soup.select('div.ratings-bar strong')
 		text="lister-item-year text-muted unbold"
@@ -51,7 +51,7 @@ while(True):
 			num=len(movietags)
 	
 		for index in range(num):
-			movie_rating=rating_tags[index].text # u got rating yayyy
+			movie_rating=rating_tags[index].text 
 			movie_split=movietags[index].text.split()
 			year=year_tags[index].text
 			movie_name=innermovietag[index].text
@@ -70,21 +70,6 @@ while(True):
 	    
 	    
 	    
-	
-	
-		
-	
-
-
-
-
-    
-
-
-	
-
-
-
    
 
 def main(args):
